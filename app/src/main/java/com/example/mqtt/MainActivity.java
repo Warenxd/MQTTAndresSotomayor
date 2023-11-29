@@ -5,6 +5,7 @@ import static android.graphics.Color.RED;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     static String MQTTHOST = "tcp://crudfirebaseas.cloud.shiftr.io:1883";
     static String MQTTUSER = "crudfirebaseas";
-    static String MQTTPASS = "IOOtWcQdddtBQDjN@";
+    static String MQTTPASS = "IOOtWcQdddtBQDjN";
 
     static String TOPIC = "LED";
     static String TOPIC_MSG_ON = "Encender";
@@ -61,6 +62,14 @@ public class MainActivity extends AppCompatActivity {
                 enviarMensaje(TOPIC, TOPIC_MSG_OFF);
             }
         });
+    }
+    private void getNombreCliente(){
+        String manufacturer = Build.MANUFACTURER;
+        String modelName = Build.MODEL;
+        this.clienteID = manufacturer + " " + modelName;
+
+        TextView txtIdCliente = findViewById(R.id.txtInfo);
+        txtIdCliente.setText(this.clienteID);
     }
 
     private void enviarMensaje(String topic, String msg){

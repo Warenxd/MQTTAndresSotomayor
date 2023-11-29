@@ -37,15 +37,18 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    implementation("org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0")
+    // dependencias mqtt
+    implementation("org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0")
+
+
     implementation("org.eclipse.paho:org.eclipse.paho.android.service:1.1.1"){
         exclude("com.android.support")
         exclude("appcompat-v7")
         exclude("support-v4")
     }
 
-    // Permite mantener la conexión abierta
-    implementation("com.androidx.support:support-v4:20.0.0")
-    // Permite agregar los permisos
-    implementation("com.androidx.support:localbroadcastmanager:28.0.0")
+    //conexion abierta
+    implementation("com.android.support:support-v4:28.0.0")
+    // permisos
+    implementation("com.android.support:localbroadcastmanager:28.0.0")
 }
